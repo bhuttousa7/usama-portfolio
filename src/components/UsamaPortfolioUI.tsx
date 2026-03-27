@@ -1,3 +1,5 @@
+"use client";
+
 export default function UsamaPortfolioUI() {
   const skills = {
     "Backend & Architecture": ["PHP", "System Design", "REST APIs", "Microservices", "Scalability"],
@@ -63,9 +65,45 @@ export default function UsamaPortfolioUI() {
         <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
             <div>
-              <div className="mb-5 inline-flex items-center rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-1.5 text-sm text-blue-200">
-                Senior Backend & AI Engineer
+              {/* Profile */}
+              <div className="mb-8 flex items-center gap-5">
+                <div className="relative shrink-0">
+                  <div className="absolute -inset-0.5 rounded-full bg-gradient-to-br from-blue-400 via-blue-500 to-emerald-400 opacity-75 blur-sm" />
+                  <img
+                    src="/profile.jpg"
+                    alt="Usama Bhutto"
+                    className="relative h-20 w-20 rounded-full border-2 border-white/10 object-cover"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      target.style.display = "none";
+                      const fallback = target.nextElementSibling as HTMLElement | null;
+                      if (fallback) fallback.style.display = "flex";
+                    }}
+                  />
+                  <div className="relative hidden h-20 w-20 items-center justify-center rounded-full border-2 border-white/10 bg-gradient-to-br from-blue-500/30 to-emerald-500/20 text-2xl font-bold text-white">
+                    UB
+                  </div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold tracking-tight text-white">Usama Bhutto</div>
+                  <div className="mt-1 flex items-center gap-1.5 text-sm text-slate-400">
+                    <svg className="h-3.5 w-3.5 text-slate-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                    </svg>
+                    Germany
+                  </div>
+                </div>
               </div>
+
+              {/* Title badge */}
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-gradient-to-r from-blue-500/15 to-emerald-500/10 px-4 py-2 text-sm font-medium text-blue-200 shadow-lg shadow-blue-500/10 backdrop-blur-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                </span>
+                Senior Backend & AI Engineer · 4+ Years
+              </div>
+
               <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-tight text-white md:text-6xl">
                 Building scalable backend and AI systems that solve real business problems.
               </h1>
